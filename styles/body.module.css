@@ -4,7 +4,7 @@
     height: 100vh;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 100vw;
+    z-index: 0;
 }
 
 .head {
@@ -18,10 +18,6 @@
 }
 
 @media only screen and (max-width: 935px) {
-    .component {
-        position: absolute;
-    }
-
     .head {
         flex-direction: column;
         align-items: center;
