@@ -13,6 +13,10 @@
     display: none;
 }
 
+.menuButton {
+    cursor: pointer;
+}
+
 .link {
     text-decoration: none;
     color: var(--primary-dark);

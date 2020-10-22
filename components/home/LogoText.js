@@ -19,7 +19,7 @@ function LogoText() {
         <div className={StyleSheet.container}>
             <HamburgerMenu anim={anim} />
             {hamburgerMenuVisible && <Mask handleClick={() => setHamburgerMenuVisible(false)} />}
-            <div onClick={() => setHamburgerMenuVisible(true)}>
+            <div className={StyleSheet.menuButton} onClick={() => setHamburgerMenuVisible(true)}>
                 <Menu
                     className={StyleSheet.menu}
                     color={Colors.COLOR_PRIMARY_DARK}

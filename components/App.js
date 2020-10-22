@@ -17,7 +17,7 @@ function App() {
                 />
                 <meta
                     name="viewport"
-                    content="width=device-width, initial-scale=1.0"
+                    content="width=device-width, initial-scale=1"
                 />
                 <meta name="theme-color" content={Colors.COLOR_PRIMARY} />
                 <meta name="msapplication-navbutton-color" content={Colors.COLOR_PRIMARY} />

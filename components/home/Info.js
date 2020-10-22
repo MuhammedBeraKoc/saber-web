@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import Button from '../native/Button'
 import { Colors } from '../../utils/colors'
 import StyleSheet from '../../styles/info.module.css'
@@ -20,14 +20,14 @@ function Info() {
         config: {
             tension: 450,
             friction: 18,
-            mass: 0.2
-        }
+            mass: 0.2,
+        },
     }))
     const router = useRouter()
     return (
         <div className={StyleSheet.component}>
             <div className={StyleSheet.libName}>Saber</div>
-            <div className={StyleSheet.title}>Immutable JavaScript Library</div>
+            <div className={StyleSheet.title}>Immutable<br />JavaScript Library</div>
             <div className={StyleSheet.breaker}>
                 <Button
                     color={Colors.COLOR_PRIMARY}

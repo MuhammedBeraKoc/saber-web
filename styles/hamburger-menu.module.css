@@ -1,5 +1,5 @@
 .component {
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -12,6 +12,7 @@
 @media only screen and (max-width: 720px) {
     .component {
         display: flex;
+        position: fixed;
         z-index: 2;
     }
 }

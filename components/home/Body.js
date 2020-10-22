@@ -9,7 +9,7 @@ function Body() {
     const [fadeInAnim, setFadeInAnim] = useSpring(() => ({
         opacity: 0,
         config: {
-            tension: 28
+            tension: 28,
         },
     }))
     useEffect(() => {
@@ -21,6 +21,20 @@ function Body() {
                 opacity: 0,
             })
     })
+    /*
+                <div className={StyleSheet.head}>
+                <animated.object
+                    style={fadeInAnim}
+                    className={StyleSheet.icon}
+                    type="image/svg+xml"
+                    data={'./app_icon.svg'}>
+                    <img src={'./app_icon.svg'} alt={'animated'} />
+                </animated.object>
+                <Info />
+            </div>
+            <Features />
+            <Footer />
+    * */
     return (
         <div className={StyleSheet.component}>
             <div className={StyleSheet.head}>
