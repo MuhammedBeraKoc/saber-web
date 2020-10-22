@@ -1,0 +1,15 @@
+.component {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 935px) {
+    .component {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

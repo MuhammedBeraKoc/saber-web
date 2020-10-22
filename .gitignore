@@ -1,3 +1,7 @@
+# My Ignores
+.idea
+.vscode
+
 # Logs
 logs
 *.log

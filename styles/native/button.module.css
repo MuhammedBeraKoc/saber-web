@@ -1,0 +1,24 @@
+.button {
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 9999px;
+    border-width: 1px;
+    border-style: solid;
+    text-transform: uppercase;
+    padding: .8rem 1.5rem;
+    box-shadow: 0 0 0 0 white;
+    user-select: none;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 935px) {
+    .button {
+        font-size: 1.2rem;
+    }
+}
+

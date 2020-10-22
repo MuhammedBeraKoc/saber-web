@@ -1,0 +1,22 @@
+.link {
+    color: var(--primary-dark);
+    text-decoration: none;
+    margin: 0 16px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--background-color);
+    transition: all .2s ease-in-out;
+}
+
+.link:last-child {
+    margin: 0 0 0 16px;
+}
+
+.link:hover {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+@media only screen and (max-width: 720px) {
+    .link {
+        display: none;
+    }
+}

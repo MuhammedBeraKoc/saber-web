@@ -1,0 +1,70 @@
+.component {
+    width: 480px;
+}
+
+.title {
+    font-size: 3.2rem;
+    font-weight: 300;
+    margin-bottom: 24px;
+}
+
+.libName {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: white;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-weight: 300;
+    background-color: var(--primary-color);
+    display: none;
+}
+
+.npm {
+    display: inline-block;
+    padding: 10px 0;
+    width: 314px;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+    user-select: none;
+}
+
+.breaker {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+@media only screen and (max-width: 935px) {
+    .component {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .libName {
+        display: block;
+    }
+
+    .breaker {
+        margin: 0 0 20px;
+        display: block;
+    }
+
+    .npm {
+        margin: 32px 0;
+        font-size: 1.2rem;
+        padding: 18px 0;
+        width: 80%;
+    }
+
+    .title {
+        font-size: 2.8rem;
+        width: 60vw;
+        text-align: center;
+        margin: 16px 0 48px;
+    }
+}

@@ -1,0 +1,14 @@
+.component {
+    background-color: white;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
