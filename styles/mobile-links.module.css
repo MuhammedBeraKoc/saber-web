@@ -1,0 +1,25 @@
+.component {
+    display: none;
+}
+
+.link {
+    padding: 0 20px;
+    color: var(--primary-dark);
+    text-decoration: none;
+    border-bottom: 2px solid var(--background-color);
+    transition: all .2s ease-in-out;
+}
+
+.separator {
+    height: 12px;
+}
+.separator:last-child {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width: 720px) {
+    .component {
+        display: block;
+        width: 100%;
+    }
+}
