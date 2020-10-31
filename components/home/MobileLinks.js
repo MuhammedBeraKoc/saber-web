@@ -32,13 +32,22 @@ function MobileLinks() {
     return (
         <div className={StyleSheet.component}>
             {currentLinks.map((link, index) => (
-                <>
+                <div key={index}>
                     {index === 0 && <div className={StyleSheet.separator} />}
-                    <Link key={index} href={link.ref}>
-                        <a className={StyleSheet.link}>{link.content}</a>
-                    </Link>
+                    {index === currentLinks.length - 1 ? (
+                        <a
+                            className={StyleSheet.link}
+                            href={link.ref}
+                            target={'_blank'}>
+                            {link.content}
+                        </a>
+                    ) : (
+                        <Link href={link.ref}>
+                            <a className={StyleSheet.link}>{link.content}</a>
+                        </Link>
+                    )}
                     <div className={StyleSheet.separator} />
-                </>
+                </div>
             ))}
         </div>
     )
