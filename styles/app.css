@@ -25,3 +25,15 @@ body {
 .fixed {
     position: fixed;
 }
+
+.visible {
+    opacity: 1;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.anim {
+    transition: all .2s ease-in-out;
+}

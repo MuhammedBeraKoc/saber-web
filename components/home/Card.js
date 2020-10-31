@@ -13,7 +13,13 @@ Card.propTypes = {
 
 function Card(props) {
     const ref = useRef(null)
-    const [color, setColor] = useState(Colors.COLOR_PRIMARY)
+    const { width } = useWindowSize()
+    useEffect(() => {
+        console.log(width)
+        if (width < 935) setColor(Colors.COLOR_PRIMARY)
+        else setColor(addOpacity(Colors.COLOR_PRIMARY, 0.6))
+    }, [width])
+    const [color, setColor] = useState(addOpacity(Colors.COLOR_PRIMARY, 0.6))
     const updateColor = () => {
         setColor(
             color === addOpacity(Colors.COLOR_PRIMARY, 0.6)
@@ -22,7 +28,6 @@ function Card(props) {
         )
     }
     const Icon = props.icon
-    const { width } = useWindowSize()
     const content = (
         <div
             ref={ref}
