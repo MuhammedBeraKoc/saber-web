@@ -1,0 +1,104 @@
+.component {
+    padding: 5em 0;
+    display: flex;
+}
+
+.border {
+    border-bottom: 1px solid var(--shadow-color-lighter);
+}
+
+.subFragment .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    margin-bottom: 1rem;
+    line-height: 2.4rem;
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+.leftPart {
+    flex: 1;
+    max-width: 48%;
+    align-self: center;
+    margin-right: 48px;
+}
+
+.codes {
+    width: 50%;
+    flex: 1;
+    overflow: hidden;
+}
+
+.codes > div {
+}
+
+.codes > * {
+    margin-bottom: 20px;
+}
+
+.content {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+}
+
+@media only screen and (max-width: 900px) {
+    .component {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .component {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leftPart {
+        margin: 24px 0;
+        max-width: 100%;
+    }
+
+    .codes {
+        flex: 1;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    .codes {
+        width: 100%;
+    }
+
+    .leftPart {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .title {
+        margin-top: 0;
+    }
+
+    .component {
+        padding: 1em 0 0 0;
+        margin: clamp(20px, 8vw, 40px);
+    }
+
+    .subFragment {
+        padding-top: 0;
+    }
+
+    .subFragment .leftPart {
+        margin-top: 0;
+    }
+
+    .codes {
+        max-width: 80vw;
+        margin-bottom: clamp(40px, 8vw, 60px);
+    }
+}
+

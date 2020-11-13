@@ -1,0 +1,70 @@
+.component {
+    flex-grow: 1;
+    padding: clamp(50px, 4vw, 90px) clamp(120px, 10vw, 240px);
+    margin-left: 110px;
+    border: 1px solid var(--shadow-color-lighter);
+}
+
+.name {
+    border: 2px white solid;
+    display: inline-block;
+    color: white;
+    padding: 0 4px;
+    margin-right: 2px;
+    border-radius: 5px;
+    background-color: #3a86ff;
+}
+
+.infoText {
+    margin-top: 16px;
+}
+
+.apiTypeHeader {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.implement {
+    margin-right: 4px;
+    font-weight: 300;
+    display: inline-block;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background-color: #4cc9f0;
+}
+
+.extend {
+    font-weight: 300;
+    display: inline-block;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background-color: #f8961e;
+}
+
+.annotation {
+    font-weight: 300;
+    display: inline-block;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background-color: #ffd166;
+}
+
+@media only screen and (max-width: 1200px) {
+    .component {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .component {
+        padding: 40px 0;
+    }
+}

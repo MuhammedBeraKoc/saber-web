@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Button from '../native/Button'
 import { Colors } from '../../utils/colors'
-import StyleSheet from '../../styles/info.module.css'
+import StyleSheet from '../../styles/home/info.module.css'
 import { GitHub } from 'react-feather'
 import { useRouter } from 'next/router'
 
@@ -11,10 +11,8 @@ function Info() {
     return (
         <div className={StyleSheet.component}>
             <div className={StyleSheet.libName}>Saber</div>
-            <div className={StyleSheet.title}>
-                Immutable
-                <br />
-                JavaScript Library
+            <div className={`${StyleSheet.title} anim`}>
+                Immutable JavaScript Library
             </div>
             <div className={StyleSheet.breaker}>
                 <Button

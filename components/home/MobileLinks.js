@@ -2,7 +2,7 @@ import React from 'react'
 import { memorise } from '../../utils/utility-functions'
 import { ExternalLink } from 'react-feather'
 import { Colors } from '../../utils/colors'
-import StyleSheet from '../../styles/mobile-links.module.css'
+import StyleSheet from '../../styles/home/mobile-links.module.css'
 import Link from 'next/link'
 
 function MobileLinks() {
@@ -12,7 +12,7 @@ function MobileLinks() {
             ref: '/docs',
         },
         {
-            content: 'API Reference',
+            content: 'ApiReference Reference',
             ref: '/api',
         },
         {

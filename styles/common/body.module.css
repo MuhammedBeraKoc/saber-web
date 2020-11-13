@@ -1,0 +1,55 @@
+.component {
+    padding: 120px 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+@keyframes flow {
+    from {
+        box-shadow: 0 0 12px 4px var(--shadow-color-lighter);
+    }
+    to {
+        box-shadow: 0 0 12px 4px var(--shadow-color-light);
+    }
+}
+
+.menuSignal {
+    user-select: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 12px 4px var(--shadow-color-lighter);
+    width: 40px;
+    height: 40px;
+    border-radius: 99px;
+    position: fixed;
+    bottom: 80px;
+    right: 5vw;
+    cursor: pointer;
+    animation: flow 1s ease-in-out 1s infinite alternate;
+}
+
+.lift {
+    z-index: 3;
+}
+
+.dot {
+    pointer-events: none;
+    width: 50%;
+    height: 50%;
+    background-color: var(--color-primary);
+    border-radius: 99px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .menuSignal {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .component {
+        padding: 0;
+    }
+}

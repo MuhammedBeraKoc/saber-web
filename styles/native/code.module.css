@@ -1,0 +1,144 @@
+.Code {
+    font-size: 0.8rem;
+    font-weight: 400;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.dark {
+    background-color: var(--color-code-body-bg);
+}
+
+.light {
+    background-color: var(--color-code-body-bg-light);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.dark .header {
+    background-color: var(--color-code-header-bg);
+}
+
+.light .header {
+    background-color: var(--color-code-header-bg-light);
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.dark .title {
+    color: var(--color-code-header-title);
+}
+
+.light .title {
+    color: var(--color-code-header-title-light);
+}
+
+.copyWidget {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+}
+
+.copyWidget:hover {
+    background-color: #33384a;
+}
+
+.copyWidget svg {
+    fill: var(--color-code-blue)
+}
+
+.body {
+    white-space: pre;
+    overflow-x: auto;
+    display: flex;
+    padding: 14px 20px;
+    font-family: "Menlo","Consolas", monospace;
+}
+
+.lineNumbers {
+}
+
+.content {
+    flex: 1;
+    line-height: 16px;
+}
+
+.dark .content {
+    color: var(--color-code-default-syntax);
+}
+
+.light .content {
+    color: var(--color-code-default-syntax-light);
+}
+
+.line {
+    user-select: none;
+    height: 16px;
+    color: var(--color-code-body-line-number);
+    margin-right: 18px;
+}
+
+.light .number {
+    color: var(--color-code-number-dark);
+}
+
+.number {
+    color: var(--color-code-number);
+}
+
+.light .keyword {
+    color: var(--color-code-light-theme-keyword);
+}
+
+.keyword {
+    color: var(--color-code-blue);
+}
+
+.comment {
+    color: var(--color-code-comment);
+}
+
+.light .symbol {
+    color: var(--color-code-header-title);
+}
+
+.symbol {
+    color: var(--color-code-comment);
+}
+
+.light .string {
+    color: var(--color-code-light-theme-string);
+}
+
+.string {
+    color: var(--color-code-green);
+}
+
+.method {
+    color: var(--color-code-method);
+}
+
+.annotation {
+    color: var(--color-code-annotation);
+}
+
+.property {
+    color: var(--color-code-property);
+}

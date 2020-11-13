@@ -1,5 +1,5 @@
 import React from 'react'
-import StyleSheet from '../../styles/footer.module.css'
+import StyleSheet from '../../styles/home/footer.module.css'
 import SocialMedia from '../home/SocialMedia'
 
 function Footer() {

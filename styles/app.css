@@ -1,19 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
+    --shadow-color-dark: rgba(137,0,242,0.1);
+    --shadow-color-darker: rgba(137,0,242,0.2);
+    --shadow-color: rgba(94, 96, 206, 0.3);
+    --shadow-color-light: rgba(94, 96, 206, 0.2);
+    --shadow-color-lighter: rgba(94, 96, 206, 0.1);
+    --mobile-bar-height: 70px;
     --background-color: white;
-    --primary-color: #8900F2;
-    --primary-dark: #240046;
+    --color-primary: #8900f2;
+    --color-primary-dark: #240046;
     --color-accent: #C4C4C4;
     --color-accent-dark: #888;
     --color-accent-light: #F6F6F6;
     --color-success: #33ff66;
-    width: 100%;
+    --color-code-header-bg: #3c4257;
+    --color-code-header-bg-light: #e3e8ee;
+    --color-code-header-title: #a3acb9;
+    --color-code-header-title-light: #697386;
+    --color-code-comment: #c1c9d2;
+    --color-code-body-bg: #4f566b;
+    --color-code-body-bg-light: #f7fafc;
+    --color-code-body-line-number: #697386;
+    --color-code-blue: #a4cdfe;
+    --color-code-light-theme-keyword: #067ab8;
+    --color-code-default-syntax: #f5fbff;
+    --color-code-default-syntax-light: #4f566b;
+    --color-code-token: var(--color-code-body-line-number);
+    --color-code-green: #85d996;
+    --color-code-light-theme-string: #09825d;
+    --color-code-number: #efc078;
+    --color-code-number-dark: #d97917;
+    --color-code-method: #e0aaff;
+    --color-code-annotation: #f9c74f;
+    --color-code-property: #fdffb6;
 }
 
 div {
     box-sizing: border-box;
     z-index: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -36,4 +65,80 @@ body {
 
 .anim {
     transition: all .2s ease-in-out;
+}
+
+.centerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab {
+    width: 4px;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fillParent {
+    padding: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.GithubPullRequest svg path {
+    fill: none;
+}
+
+.CloudLighting svg polyline {
+    fill: none;
+}
+
+code {
+    font-size: 1.1rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 0 3px;
+    border-radius: 2px;
+    background-color: var(--color-code-body-bg-light);
+}
+
+.space {
+    width: 24px;
+    display: inline-block;
+}
+
+.anchor {
+    white-space: nowrap;
+    user-select: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: none;
+    background-color: #4361ee;
+    padding: 2px 8px;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.anchor:active {
+    color: white;
+}
+
+.name {
+    border: 2px white solid;
+    display: inline-block;
+    color: white;
+    padding: 0 4px;
+    margin-right: 2px;
+    border-radius: 5px;
+    background-color: #3a86ff;
 }

@@ -1,29 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { animated } from 'react-spring'
-import StyleSheet from '../../styles/hamburger-menu.module.css'
+import StyleSheet from '../../styles/home/hamburger-menu.module.css'
 import MobileLinks from './MobileLinks'
+import Vector from '../../utils/vector'
 
 HamburgerMenu.propTypes = {
-    anim: PropTypes.array.isRequired,
+    sizes: PropTypes.instanceOf(Vector).isRequired,
+    isVisible: PropTypes.bool.isRequired,
 }
 
 function HamburgerMenu(props) {
     return (
-        <>
-            {props.anim.map(
-                ({ item, props, key }) =>
-                    item && (
-                        <animated.div
-                            className={StyleSheet.component}
-                            key={key}
-                            style={{
-                                ...props,
-                            }}
-                        ><MobileLinks /></animated.div>
-                    )
-            )}
-        </>
+        <div
+            style={{
+                left: props.isVisible ? props.sizes.v[1] : props.sizes.v[0],
+            }}
+            className={`${StyleSheet.component} anim`}>
+            <MobileLinks />
+        </div>
     )
 }
 

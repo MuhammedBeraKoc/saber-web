@@ -1,12 +1,11 @@
 import React from 'react'
 import App from '../components/App'
-import NavBar from '../components/common/NavBar'
-import Body from '../components/support/Body'
+import Body from '../components/api/Body'
 
-function Support() {
+function ApiReference() {
     return (
         <App
-            pageIndex={3}
+            pageIndex={2}
             content={
                 <>
                     <Body />
@@ -16,4 +15,4 @@ function Support() {
     )
 }
 
-export default Support
+export default ApiReference

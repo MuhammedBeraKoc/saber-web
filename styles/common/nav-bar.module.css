@@ -1,0 +1,29 @@
+.component {
+    position: fixed;
+    justify-content: center;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.navBar {
+    min-width: clamp(400px, 50vw, 600px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 -2px 4px 4px var(--shadow-color-lighter);
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    padding: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+@media screen and (max-width: 720px) {
+    .component {
+        display: none;
+    }
+}

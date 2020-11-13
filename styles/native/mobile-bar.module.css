@@ -1,0 +1,21 @@
+.component {
+    display: none;
+}
+
+@media only screen and (max-width: 720px) {
+    .component {
+        box-shadow: 0 2px 4px 2px var(--shadow-color);
+        height: var(--mobile-bar-height);
+        background-color: #fff;
+        width: 100%;
+        z-index: 2;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 12vw;
+        align-items: center;
+        position: fixed;
+        border-top-right-radius: 16px;
+        border-top-left-radius: 16px;
+        bottom: 0;
+    }
+}

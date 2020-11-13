@@ -1,12 +1,18 @@
 import React from 'react'
-import NavBar from './home/NavBar'
-import Body from './home/Body'
 import Head from 'next/head'
 import { Colors } from '../utils/colors'
+import PropTypes from 'prop-types'
+import MobileBar from './native/MobileBar'
+import NavBar from './common/NavBar'
 
-function App() {
+App.propTypes = {
+    content: PropTypes.element.isRequired,
+    pageIndex: PropTypes.number.isRequired
+}
+
+function App(props) {
     return (
-        <>
+        <div>
             <Head>
                 <title>Saber - Immutable JavaScript</title>
                 <link
@@ -19,8 +25,8 @@ function App() {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <meta name="theme-color" content={Colors.COLOR_PRIMARY} />
-                <meta name="msapplication-navbutton-color" content={Colors.COLOR_PRIMARY} />
+                <meta name="theme-color" content={Colors.COLOR_WHITE} />
+                <meta name="msapplication-navbutton-color" content={Colors.COLOR_WHITE} />
                 <meta
                     name="apple-mobile-web-app-status-bar-style"
                     content={Colors.COLOR_PRIMARY}
@@ -32,9 +38,10 @@ function App() {
                     sizes={'16x16'}
                 />
             </Head>
-            <NavBar />
-            <Body />
-        </>
+            {props.content}
+            <NavBar pageIndex={props.pageIndex}/>
+            <MobileBar pageIndex={props.pageIndex} />
+        </div>
     )
 }
 

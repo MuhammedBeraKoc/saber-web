@@ -1,0 +1,7 @@
+.Wrapper {
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

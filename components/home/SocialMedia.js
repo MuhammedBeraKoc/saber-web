@@ -1,7 +1,7 @@
 import React from 'react'
 import { memorise } from '../../utils/utility-functions'
 import { GitHub, Linkedin, Package } from 'react-feather'
-import StyleSheet from '../../styles/social-media.module.css'
+import StyleSheet from '../../styles/home/social-media.module.css'
 
 function SocialMedia() {
     const icons = memorise([

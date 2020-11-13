@@ -1,5 +1,5 @@
 import React from 'react'
-import StyleSheet from '../../styles/features.module.css'
+import StyleSheet from '../../styles/home/features.module.css'
 import { memorise } from '../../utils/utility-functions'
 import Card from './Card'
 import { Box, Layers, Settings } from 'react-feather'

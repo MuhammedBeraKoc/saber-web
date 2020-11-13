@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
-import StyleSheet from '../../styles/card.module.css'
-import { addOpacity, Colors } from '../../utils/colors'
+import StyleSheet from '../../styles/home/card.module.css'
+import { Colors } from '../../utils/colors'
 import useWindowSize from '../../hooks/useWindowSize'
 import { OnShow } from '@solariss/react-on-show'
 
@@ -14,36 +14,25 @@ Card.propTypes = {
 function Card(props) {
     const ref = useRef(null)
     const { width } = useWindowSize()
-    useEffect(() => {
-        console.log(width)
-        if (width < 935) setColor(Colors.COLOR_PRIMARY)
-        else setColor(addOpacity(Colors.COLOR_PRIMARY, 0.6))
-    }, [width])
-    const [color, setColor] = useState(addOpacity(Colors.COLOR_PRIMARY, 0.6))
-    const updateColor = () => {
-        setColor(
-            color === addOpacity(Colors.COLOR_PRIMARY, 0.6)
-                ? Colors.COLOR_PRIMARY
-                : addOpacity(Colors.COLOR_PRIMARY, 0.6)
-        )
-    }
     const Icon = props.icon
     const content = (
         <div
             ref={ref}
-            onMouseEnter={() => updateColor()}
-            onMouseLeave={() => updateColor()}
             className={StyleSheet.component}>
-            <div className={StyleSheet.icon}>{<Icon color={color} />}</div>
+            <div className={StyleSheet.icon}>{<Icon color={Colors.COLOR_PRIMARY} />}</div>
             <div className={StyleSheet.title}>{props.title}</div>
             <div className={StyleSheet.text}>{props.text}</div>
         </div>
     )
     return width < 935 ? (
-        <OnShow handler={() => {
-            ref.current.style.top = '0'
-            ref.current.style.opacity = '1'
-        }}>
+        <OnShow handlers={{enter: () => {
+            if (ref.current) {
+                ref.current.style.top = '0'
+                ref.current.style.opacity = '1'
+            }
+        }}} conditionSet={[(graphics) => graphics.windowHeightValue >=
+        graphics.selectedComponentClientRect.y + 150, (graphics) => graphics.selectedComponentClientRect.y >=
+            -graphics.selectedComponentClientRect.height]}>
             {content}
         </OnShow>
     ) : (

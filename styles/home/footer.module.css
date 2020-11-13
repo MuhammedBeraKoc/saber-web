@@ -1,0 +1,22 @@
+.component {
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.text {
+    text-align: center;
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 12px;
+}
+
+@media only screen and (max-width: 720px) {
+    .component {
+        padding: 40px 0 calc(40px + var(--mobile-bar-height) / 2) 0;
+        margin-bottom: calc(var(--mobile-bar-height) / 2);
+    }
+}

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import StyleSheet from '../../styles/logo-text.module.css'
+import StyleSheet from '../../styles/home/logo-text.module.css'
 import { Menu } from 'react-feather'
 import { Colors } from '../../utils/colors'
 import Link from 'next/link'
-import moveRightAnim from '../../anims/moveRightAnim'
 import Vector from '../../utils/vector'
 import HamburgerMenu from './HamburgerMenu'
 import Mask from '../native/Mask'
@@ -14,10 +13,9 @@ function LogoText() {
     useEffect(() => {
         setWindowWidth(window.innerWidth)
     }, [hamburgerMenuVisible])
-    const anim = moveRightAnim(hamburgerMenuVisible, new Vector([-windowWidth * 0.7, 0], 2))
     return (
         <div className={StyleSheet.container}>
-            <HamburgerMenu anim={anim} />
+            <HamburgerMenu isVisible={hamburgerMenuVisible} sizes={new Vector([-windowWidth * 0.6, 0], 2)} />
             {hamburgerMenuVisible && <Mask handleClick={() => setHamburgerMenuVisible(false)} />}
             <div className={StyleSheet.menuButton} onClick={() => setHamburgerMenuVisible(true)}>
                 <Menu

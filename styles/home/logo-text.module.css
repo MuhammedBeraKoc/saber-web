@@ -19,7 +19,7 @@
 
 .link {
     text-decoration: none;
-    color: var(--primary-dark);
+    color: var(--color-primary-dark);
     font-size: 1.4rem;
     font-weight: 400;
 }

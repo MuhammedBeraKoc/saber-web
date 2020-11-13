@@ -1,25 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
-import StyleSheet from '../../styles/links.module.css'
+import StyleSheet from '../../styles/home/links.module.css'
 import { ExternalLink } from 'react-feather'
 import { Colors } from '../../utils/colors'
-import { memorise } from '../../utils/utility-functions'
+import { memorise, updateArray } from '../../utils/utility-functions'
+import PropTypes from 'prop-types'
 
-function Links() {
+Links.propTypes = {
+    pageIndex: PropTypes.number.isRequired,
+}
+
+const Linky = (index, color, text) => (
+    <div key={index}>
+        {text}
+    </div>
+)
+
+function Links(props) {
     const currentLinks = memorise([
         {
-            content: 'Docs',
+            Content: (index, color) => Linky(index, color, 'Home'),
+            ref: '/',
+        },
+        {
+            Content: (index, color) => Linky(index, color, 'Docs'),
             ref: '/docs',
         },
         {
-            content: 'API Reference',
-            ref: '/api',
+            Content: (index, color) => Linky(index, color, 'API Reference'),
+            ref: '/api-reference',
         },
         {
-            content: 'Support',
+            Content: (index, color) => Linky(index, color, 'Support'),
             ref: '/support',
         },
-        {
+        /*        {
             content: (
                 <>
                     GitHub{' '}
@@ -27,15 +42,58 @@ function Links() {
                 </>
             ),
             ref: 'https://github.com/MuhammedBeraKoc/saber',
-        },
+        },*/
+    ])
+    const [buttonStates, setButtonStates] = useState([
+        props.pageIndex === 0,
+        props.pageIndex === 1,
+        props.pageIndex === 2,
+        props.pageIndex === 3,
     ])
     return (
-        <div>
-            {currentLinks.map((link, index) => (
-                <Link key={index} href={link.ref}>
-                    <a className={StyleSheet.link}>{link.content}</a>
-                </Link>
-            ))}
+        <div className={StyleSheet.component}>
+            {currentLinks.map((link, index) =>
+                index === props.pageIndex ? (
+                    <div
+                        key={index}
+                        className={`${StyleSheet.link} ${
+                            buttonStates[index]
+                                ? StyleSheet.active
+                                : StyleSheet.notActive
+                        } anim`}>
+                        {link.Content(index, Colors.COLOR_PRIMARY_DARK)}
+                    </div>
+                ) : (
+                    <Link key={index} href={link.ref}>
+                        <a>
+                            {
+                                <div
+                                    onClick={() => {
+                                        if (!buttonStates[index]) {
+                                            setButtonStates(
+                                                buttonStates.fill(false)
+                                            )
+                                            setButtonStates(
+                                                updateArray(
+                                                    buttonStates,
+                                                    index,
+                                                    true
+                                                )
+                                            )
+                                        }
+                                    }}
+                                    className={`${StyleSheet.link} ${
+                                        buttonStates[index]
+                                            ? StyleSheet.active
+                                            : StyleSheet.notActive
+                                    } anim`}>
+                                    {link.Content(Colors.COLOR_PRIMARY)}
+                                </div>
+                            }
+                        </a>
+                    </Link>
+                )
+            )}
         </div>
     )
 }
