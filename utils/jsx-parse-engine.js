@@ -105,12 +105,12 @@ export function parseSourceCodeToJSX(content) {
     }
     matchArray = sortMatchArray(matchArray)
     let result = parse(content, matchArray)
-    result = result.replaceAll(tab, '<span class="space"></span>')
-    result = result.replaceAll(newLine, '<br />')
+    result = result.replace(tab, '<span class="space"></span>')
+    result = result.replace(newLine, '<br />')
     return <div dangerouslySetInnerHTML={{ __html: result }} />
 }
 
 export function parseTextToJSX(content) {
     const newLine = /\n/g
-    return <>{ReactHtmlParser(content.replaceAll(newLine, '<br/>'))}</>
+    return <>{ReactHtmlParser(content.replace(newLine, '<br/>'))}</>
 }
