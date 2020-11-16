@@ -3,6 +3,15 @@ import StyleSheet from '../../styles/home/features.module.css'
 import { memorise } from '../../utils/utility-functions'
 import Card from './Card'
 import { Box, Layers, Settings } from 'react-feather'
+import { motion } from 'framer-motion'
+
+const stagger = {
+    animate: {
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+}
 
 function Features() {
     const features = memorise([
@@ -25,7 +34,7 @@ function Features() {
         },
     ])
     return (
-        <div className={StyleSheet.component}>
+        <motion.div variants={stagger} className={StyleSheet.component}>
             {features.map((feature, index) => {
                 return (
                     <Card
@@ -36,7 +45,7 @@ function Features() {
                     />
                 )
             })}
-        </div>
+        </motion.div>
     )
 }
 

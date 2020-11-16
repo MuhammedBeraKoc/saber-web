@@ -4,24 +4,50 @@ import { Colors } from '../../utils/colors'
 import StyleSheet from '../../styles/home/info.module.css'
 import { GitHub } from 'react-feather'
 import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
+
+const easing = [0.6, -0.5, 0.01, 0.99]
+
+const stagger = {
+    animate: {
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+}
+
+const fadeInOut = {
+    initial: {
+        y: -20,
+        opacity: 0,
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+    },
+    transition: {
+        duration: 0.3,
+        ease: easing,
+    },
+}
 
 function Info() {
     const [isNPMVisible, setNPMVisible] = useState(false)
     const router = useRouter()
     return (
-        <div className={StyleSheet.component}>
+        <motion.div variants={stagger} className={StyleSheet.component}>
             <div className={StyleSheet.libName}>Saber</div>
-            <div className={`${StyleSheet.title} anim`}>
+            <motion.div variants={fadeInOut} className={StyleSheet.title}>
                 Immutable JavaScript Library
-            </div>
-            <div className={StyleSheet.breaker}>
+            </motion.div>
+            <motion.div variants={fadeInOut} className={StyleSheet.breaker}>
                 <Button
                     color={Colors.COLOR_PRIMARY}
                     content={'Get Started'}
                     onClick={() => router.push('/docs')}
                 />
-            </div>
-            <div className={StyleSheet.breaker}>
+            </motion.div>
+            <motion.div variants={fadeInOut} className={StyleSheet.breaker}>
                 <Button
                     color={Colors.COLOR_ACCENT_LIGHT}
                     onClick={() =>
@@ -38,8 +64,9 @@ function Info() {
                         </>
                     }
                 />
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+                variants={fadeInOut}
                 onMouseEnter={() => setNPMVisible(true)}
                 onMouseLeave={() => setNPMVisible(false)}
                 onClick={() => {
@@ -53,13 +80,15 @@ function Info() {
                 className={StyleSheet.npm}>
                 <div
                     className={`${StyleSheet.npmSlide} ${
-                        isNPMVisible ? StyleSheet.npmActive : StyleSheet.npmPassive
+                        isNPMVisible
+                            ? StyleSheet.npmActive
+                            : StyleSheet.npmPassive
                     }`}>
                     npm install @berakocc/saber
                 </div>
                 npm install @berakocc/saber
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     )
 }
 

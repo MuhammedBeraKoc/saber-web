@@ -9,6 +9,7 @@
 }
 
 .navBar {
+    position: relative;
     min-width: clamp(400px, 50vw, 600px);
     display: inline-flex;
     justify-content: center;

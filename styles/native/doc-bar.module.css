@@ -7,7 +7,7 @@
     border-radius: 2px;
     z-index: 2;
     background-color: white;
-    display: block;
+    display: inline-block;
     max-height: 40vh;
     overflow-y: auto;
 }
@@ -56,12 +56,18 @@
     .component {
         display: none;
         bottom: 130px;
-        right: 5vw;
+        right: 5vw!important;
+        left: auto!important;
+        width: 25vw;
     }
 }
 
 @media only screen and (max-width: 720px) {
+    .component {
+        width: 60vw;
+    }
+
     .menuItem {
-        opacity: 0.8;
+        opacity: 1;
     }
 }

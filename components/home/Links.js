@@ -5,16 +5,36 @@ import { ExternalLink } from 'react-feather'
 import { Colors } from '../../utils/colors'
 import { memorise, updateArray } from '../../utils/utility-functions'
 import PropTypes from 'prop-types'
+import { motion } from 'framer-motion'
 
 Links.propTypes = {
     pageIndex: PropTypes.number.isRequired,
 }
 
-const Linky = (index, color, text) => (
-    <div key={index}>
-        {text}
-    </div>
-)
+const Linky = (index, color, text) => <div key={index}>{text}</div>
+
+const easing = [0.6, -0.5, 0.01, 0.99]
+const scaleUp = {
+    initial: {
+        scale: 0,
+        opacity: 0,
+    },
+    animate: {
+        scale: 1,
+        opacity: 1,
+    },
+    transition: {
+        duration: 0.3,
+        ease: easing,
+    },
+}
+const stagger = {
+    animate: {
+        transition: {
+            staggerChildren: 0.2,
+        },
+    },
+}
 
 function Links(props) {
     const currentLinks = memorise([
@@ -51,10 +71,11 @@ function Links(props) {
         props.pageIndex === 3,
     ])
     return (
-        <div className={StyleSheet.component}>
+        <motion.div variants={stagger} className={StyleSheet.component}>
             {currentLinks.map((link, index) =>
                 index === props.pageIndex ? (
-                    <div
+                    <motion.div
+                        variants={scaleUp}
                         key={index}
                         className={`${StyleSheet.link} ${
                             buttonStates[index]
@@ -62,12 +83,13 @@ function Links(props) {
                                 : StyleSheet.notActive
                         } anim`}>
                         {link.Content(index, Colors.COLOR_PRIMARY_DARK)}
-                    </div>
+                    </motion.div>
                 ) : (
                     <Link key={index} href={link.ref}>
                         <a>
                             {
-                                <div
+                                <motion.div
+                                    variants={scaleUp}
                                     onClick={() => {
                                         if (!buttonStates[index]) {
                                             setButtonStates(
@@ -88,13 +110,13 @@ function Links(props) {
                                             : StyleSheet.notActive
                                     } anim`}>
                                     {link.Content(Colors.COLOR_PRIMARY)}
-                                </div>
+                                </motion.div>
                             }
                         </a>
                     </Link>
                 )
             )}
-        </div>
+        </motion.div>
     )
 }
 

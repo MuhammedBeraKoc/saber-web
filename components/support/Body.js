@@ -3,10 +3,19 @@ import StyleSheet from '../../styles/support/body.module.css'
 import Info from './Info'
 import { CloudLightning, GitPullRequest } from 'react-feather'
 import Card from './Card'
+import { motion } from 'framer-motion'
+
+const stagger = {
+    animate: {
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+}
 
 function Body(props) {
     return (
-        <div className={StyleSheet.component}>
+        <motion.div variants={stagger} className={StyleSheet.component}>
             <Info />
             <div className={StyleSheet.cardContainer}>
                 <Card
@@ -38,7 +47,7 @@ function Body(props) {
                     }
                 />
             </div>
-        </div>
+        </motion.div>
     )
 }
 

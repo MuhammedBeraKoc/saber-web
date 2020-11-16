@@ -17,7 +17,7 @@ Button.propTypes = {
 function Button(props) {
     return (
         <div
-            className={StyleSheet.button}
+            className={`${StyleSheet.button} anim`}
             style={{
                 background: props.color,
                 color: props.textColor

@@ -7,7 +7,7 @@ import NavBar from './common/NavBar'
 
 App.propTypes = {
     content: PropTypes.element.isRequired,
-    pageIndex: PropTypes.number.isRequired
+    pageIndex: PropTypes.number.isRequired,
 }
 
 function App(props) {
@@ -26,7 +26,10 @@ function App(props) {
                     content="width=device-width, initial-scale=1"
                 />
                 <meta name="theme-color" content={Colors.COLOR_WHITE} />
-                <meta name="msapplication-navbutton-color" content={Colors.COLOR_WHITE} />
+                <meta
+                    name="msapplication-navbutton-color"
+                    content={Colors.COLOR_WHITE}
+                />
                 <meta
                     name="apple-mobile-web-app-status-bar-style"
                     content={Colors.COLOR_PRIMARY}
@@ -39,7 +42,7 @@ function App(props) {
                 />
             </Head>
             {props.content}
-            <NavBar pageIndex={props.pageIndex}/>
+            <NavBar pageIndex={props.pageIndex} />
             <MobileBar pageIndex={props.pageIndex} />
         </div>
     )

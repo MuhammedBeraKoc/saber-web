@@ -78,6 +78,7 @@
 .content {
     flex: 1;
     line-height: 16px;
+    padding-right: 16px;
 }
 
 .dark .content {

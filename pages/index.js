@@ -1,18 +1,23 @@
 import React from 'react'
 import App from '../components/App'
-import NavBar from '../components/common/NavBar'
+import { motion } from 'framer-motion'
 import Body from '../components/home/Body'
 
 function HomePage() {
     return (
-        <App
-            pageIndex={0}
-            content={
-                <>
-                    <Body />
-                </>
-            }
-        />
+        <motion.div
+            exit={{ opacity: 0 }}
+            initial={'initial'}
+            animate={'animate'}>
+            <App
+                pageIndex={0}
+                content={
+                    <>
+                        <Body />
+                    </>
+                }
+            />
+        </motion.div>
     )
 }
 

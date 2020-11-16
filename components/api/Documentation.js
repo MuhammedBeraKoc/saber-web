@@ -67,6 +67,43 @@ console.log(mergedObject.value)`,
 const squareNumbers = SaberArray.create([1,4,9])
 console.log(squareNumbers.value)
 `,
+    `import { SaberArray } from '@berakocc/saber
+    
+const colorSet = SaberArray.create(['red', 'green'])
+const updatedColorSet = colorSet.append('blue')
+console.log(updatedColorSet.value)`,
+    `import { SaberArray } from '@berakocc/saber
+    
+const engines = SaberArray.create(['v10', 'v12'])
+const updatedEngines = engines.prepend('v8')
+console.log(updatedEngines.value)`,
+    `import { SaberArray } from '@berakocc/saber
+    
+const texts = SaberArray.create(['Hello World!', 'Lorem ipsum'])
+const copiedTexts = texts.copy()
+console.log(copiedTexts.value)
+console.log(texts.uid !== copiedTexts.uid)`,
+    `import { SaberArray } from '@berakocc/saber
+    
+const dictionary1 = SaberArray.create(['tree', 'mountain'])
+const dictionary2 = SaberArray.create(['sun', 'planet'])
+const mergedDictionary = dictionary1.merge(dictionary2)
+console.log(mergedDictionary.value)`,
+    `import { SaberArray } from '@berakocc/saber
+    
+const elements = SaberArray.create(['Au', 'Li'])
+const updatedElements = elements.insert('Bi', 1)
+console.log(updatedElements.value)`,
+    `import { SaberArray } from '@berakocc/saber
+    
+const tools = SaberArray.create(['hammer', 'ladder', 'nuts'])
+const mendedTools = tools.update('bolts', 'nuts', true)
+console.log(mendedTools.value)`,
+    `import { SaberArray } from '@berakocc/saber
+    
+const letterSet = SaberArray.create(['A', 'B', 'C', 'A'])
+const letterSetWithoutA = letterSet.remove('A')
+console.log(letterSetWithoutA.value)`,
 ]
 
 const codeResults = [
@@ -91,6 +128,13 @@ const codeResults = [
     'Object {\n' + '\tprice: "150€",\n' + '\tweight: 200\n' + '}\n\ntrue',
     'Object {\n' + '\tid: 18294,\n' + '\tvalue: 2854\n' + '}',
     '[1, 4, 9]',
+    '["red", "green", "blue"]',
+    '["v8", "v10", "v12"]',
+    '["Hello World!", "Lorem ipsum"]\n\ntrue',
+    '["tree", "mountain", "sun", "planet"]',
+    '["Au", "Bi", "Li"]',
+    '["hammer", "ladder", "bolts"]',
+    '["B", "C"]'
 ]
 
 function Documentation() {
@@ -352,7 +396,7 @@ function Documentation() {
                 ]}
             />
             <DocsFragment
-                linkId={'remove'}
+                linkId={'remove-object'}
                 title={<FunctionName name={'remove'} />}
                 content={
                     <>
@@ -385,7 +429,7 @@ function Documentation() {
                 ]}
             />
             <DocsFragment
-                linkId={'copy'}
+                linkId={'copy-object'}
                 title={<FunctionName name={'copy'} />}
                 content={
                     <>
@@ -405,7 +449,7 @@ function Documentation() {
                 ]}
             />
             <DocsFragment
-                linkId={'merge'}
+                linkId={'merge-object'}
                 title={<FunctionName name={'merge'} />}
                 content={
                     <>
@@ -442,9 +486,7 @@ function Documentation() {
                             Extends{' '}
                             <span className={StyleSheet.bold}>SaberCore</span>
                         </div>
-                        <span className={StyleSheet.implement}>
-                                generic
-                        </span>
+                        <span className={StyleSheet.implement}>generic</span>
                         <div className={StyleSheet.infoText}>
                             A class that encapsulates a JavaScript{' '}
                             <Anchor
@@ -469,10 +511,9 @@ function Documentation() {
                                 name={'value?'}
                                 types={['T', 'T[ ]', 'SaberArray<T>']}
                             />
-                            <FunctionReturnValue name={'SaberArray'} />
-                            <div className={StyleSheet.implement}>
-                                generic static
-                            </div>
+                            <FunctionReturnValue name={'SaberArray<T>'} />
+                            <div className={StyleSheet.implement}>generic</div>
+                            <div className={StyleSheet.implement}>static</div>
                         </div>
                         <div className={StyleSheet.infoText}>
                             Creates a new SaberArray.Designed as a{' '}
@@ -497,38 +538,197 @@ function Documentation() {
                 ]}
             />
             <DocsFragment
-                linkId={'create-array'}
-                title={<FunctionName name={'create<T>'} />}
+                linkId={'append'}
+                title={<FunctionName name={'append'} />}
                 content={
                     <>
                         <div className={StyleSheet.apiTypeHeader}>
-                            <FunctionArgument
-                                name={'value?'}
-                                types={['T', 'T[ ]', 'SaberArray<T>']}
-                            />
-                            <FunctionReturnValue name={'SaberArray'} />
-                            <div className={StyleSheet.implement}>
-                                generic
-                            </div>
-
+                            <FunctionArgument name={'v'} types={['T']} />
+                            <FunctionReturnValue name={'SaberArray<T>'} />
                         </div>
                         <div className={StyleSheet.infoText}>
-                            Creates a new SaberArray.Designed as a{' '}
-                            <span className={StyleSheet.name}>
-                                static factory method
-                            </span>
-                            . I totally recommend using this over normal
-                            initialisation.
+                            Appends the given value.
                         </div>
                     </>
                 }
                 codes={[
                     <Code
-                        content={codeBase[8]}
-                        title={'Creating square number set'}
+                        content={codeBase[9]}
+                        title={'Adding hex color to the color set'}
                     />,
                     <Code
-                        content={codeResults[7]}
+                        content={codeResults[8]}
+                        theme={'light'}
+                        title={'Output'}
+                    />,
+                ]}
+            />
+            <DocsFragment
+                linkId={'prepend'}
+                title={<FunctionName name={'prepend'} />}
+                content={
+                    <>
+                        <div className={StyleSheet.apiTypeHeader}>
+                            <FunctionArgument name={'v'} types={['T']} />
+                            <FunctionReturnValue name={'SaberArray<T>'} />
+                        </div>
+                        <div className={StyleSheet.infoText}>
+                            Prepends the given value.
+                        </div>
+                    </>
+                }
+                codes={[
+                    <Code
+                        content={codeBase[10]}
+                        title={'Prepending a new engine'}
+                    />,
+                    <Code
+                        content={codeResults[9]}
+                        theme={'light'}
+                        title={'Output'}
+                    />,
+                ]}
+            />
+            <DocsFragment
+                linkId={'copy-array'}
+                title={<FunctionName name={'copy'} />}
+                content={
+                    <>
+                        <div className={StyleSheet.apiTypeHeader}>
+                            <FunctionReturnValue name={'SaberArray<T>'} />
+                        </div>
+                        <div className={StyleSheet.infoText}>
+                            Copies the current value and returns a new
+                            SaberArray.
+                        </div>
+                    </>
+                }
+                codes={[
+                    <Code content={codeBase[11]} title={'Copying sentences'} />,
+                    <Code
+                        content={codeResults[10]}
+                        theme={'light'}
+                        title={'Output'}
+                    />,
+                ]}
+            />
+            <DocsFragment
+                linkId={'merge-array'}
+                title={<FunctionName name={'merge'} />}
+                content={
+                    <>
+                        <div className={StyleSheet.apiTypeHeader}>
+                            <FunctionArgument
+                                name={'saberArray'}
+                                types={['SaberArray<T>']}
+                            />
+                            <FunctionReturnValue name={'SaberArray<T>'} />
+                        </div>
+                        <div className={StyleSheet.infoText}>
+                            Merges two SaberArray.
+                        </div>
+                    </>
+                }
+                codes={[
+                    <Code
+                        content={codeBase[12]}
+                        title={'Merging two dictionary'}
+                    />,
+                    <Code
+                        content={codeResults[11]}
+                        theme={'light'}
+                        title={'Output'}
+                    />,
+                ]}
+            />
+            <DocsFragment
+                linkId={'insert'}
+                title={<FunctionName name={'insert'} />}
+                content={
+                    <>
+                        <div className={StyleSheet.apiTypeHeader}>
+                            <FunctionArgument name={'v'} types={['T']} />
+                            <FunctionArgument name={'i'} types={['number']} />
+                            <FunctionReturnValue name={'SaberArray<T>'} />
+                        </div>
+                        <div className={StyleSheet.infoText}>
+                            Updates the value at the given index.
+                        </div>
+                    </>
+                }
+                codes={[
+                    <Code
+                        content={codeBase[13]}
+                        title={'Inserting a new element'}
+                    />,
+                    <Code
+                        content={codeResults[12]}
+                        theme={'light'}
+                        title={'Output'}
+                    />,
+                ]}
+            />
+            <DocsFragment
+                linkId={'update'}
+                title={<FunctionName name={'update'} />}
+                content={
+                    <>
+                        <div className={StyleSheet.apiTypeHeader}>
+                            <FunctionArgument name={'v'} types={['T']} />
+                            <FunctionArgument
+                                name={'indexer'}
+                                types={['T', 'number']}
+                            />
+                            <FunctionArgument
+                                name={'isIndexerBasedOnValue'}
+                                types={['boolean = false']}
+                            />
+                            <FunctionReturnValue name={'SaberArray<T>'} />
+                        </div>
+                        <div className={StyleSheet.infoText}>
+                            Updates array value with the given index and value.{' '}
+                            <span className={'name'}>indexer</span> can be
+                            either a value of array or an index. However there
+                            can be a confusion when the array value is number.
+                            Therefore you have to use a third argument{' '}
+                            <span className={'name'}>true</span> when you want
+                            to use indexer as a value indexer.
+                        </div>
+                    </>
+                }
+                codes={[
+                    <Code
+                        content={codeBase[14]}
+                        title={'Updating a broken tool'}
+                    />,
+                    <Code
+                        content={codeResults[13]}
+                        theme={'light'}
+                        title={'Output'}
+                    />,
+                ]}
+            />
+            <DocsFragment
+                linkId={'remove-array'}
+                title={<FunctionName name={'remove'} />}
+                content={
+                    <>
+                        <div className={StyleSheet.apiTypeHeader}>
+                            <FunctionArgument name={'v'} types={['T']} />
+                            <FunctionReturnValue name={'SaberArray<T>'} />
+                        </div>
+                        <div className={StyleSheet.infoText}>
+                            Removes the given value from the array. If value is duplicate removes the duplicates.
+                        </div>
+                    </>
+                }
+                codes={[
+                    <Code
+                        content={codeBase[15]}
+                        title={'Removing A letters'}
+                    />,
+                    <Code
+                        content={codeResults[14]}
                         theme={'light'}
                         title={'Output'}
                     />,

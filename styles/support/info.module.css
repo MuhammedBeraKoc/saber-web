@@ -1,5 +1,6 @@
 
 .component {
+    position: relative;
     display: flex;
     padding: clamp(12px, 4vw, 24px) clamp(16px, 8vw, 32px);
     flex-direction: column;
