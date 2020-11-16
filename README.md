@@ -1,2 +1,2 @@
 # saber-web
-A Github Page for saber
+A Next.js app for [Saber](https://github.com/MuhammedBeraKoc/saber) ☄️
